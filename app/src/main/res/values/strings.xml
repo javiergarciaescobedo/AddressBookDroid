@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AddressBookDroid</string>
+    <string name="title_person_detail">Person Detail</string>
+</resources>
