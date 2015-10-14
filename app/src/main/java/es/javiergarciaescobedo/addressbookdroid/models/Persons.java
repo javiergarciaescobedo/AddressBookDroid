@@ -10,8 +10,7 @@ public class Persons {
     /**
      * Load a little number of persons in the list, with only a few properties filled
      */
-    public void loadSimpleSamples() {
-
+    public static void loadSimpleSamples() {
         Person person;
 
         person = new Person();
@@ -34,7 +33,6 @@ public class Persons {
         person.setSurnames("FUENTE DE LA SANDE\n");
         person.setAlias("ANTONIO");
         personList.add(person);
-
     }
 
 }
