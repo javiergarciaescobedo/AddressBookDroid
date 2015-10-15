@@ -3,11 +3,14 @@ package es.javiergarciaescobedo.addressbookdroid;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import es.javiergarciaescobedo.addressbookdroid.dummy.DummyContent;
+import es.javiergarciaescobedo.addressbookdroid.models.Person;
+import es.javiergarciaescobedo.addressbookdroid.models.Persons;
 
 /**
  * A list fragment representing a list of Persons. This fragment
@@ -71,11 +74,19 @@ public class PersonListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+//        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+//                getActivity(),
+//                android.R.layout.simple_list_item_activated_1,
+//                android.R.id.text1,
+//                DummyContent.ITEMS));
+        if(Persons.personList.isEmpty()) {
+            Persons.loadSimpleSamples();
+        }
+        setListAdapter(new ArrayAdapter<Person>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                DummyContent.ITEMS));
+                Persons.personList));
     }
 
     @Override
