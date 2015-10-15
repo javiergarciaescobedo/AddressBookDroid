@@ -19,6 +19,7 @@ public class Persons {
         person.setName("EVA MARIA");
         person.setSurnames("HURTADO REQUENA");
         person.setAlias("EVA");
+        person.setFavorite(true);
         personList.add(person);
 
         person = new Person();
@@ -26,6 +27,7 @@ public class Persons {
         person.setName("CARLOS DOMINGO DE GUZMAN");
         person.setSurnames("BLANCO  PEREZ");
         person.setAlias("CARLOS");
+        person.setFavorite(false);
         personList.add(person);
 
         person = new Person();
@@ -33,6 +35,7 @@ public class Persons {
         person.setName("ANTONIO ENRIQUE");
         person.setSurnames("FUENTE DE LA SANDE\n");
         person.setAlias("ANTONIO");
+        person.setFavorite(true);
         personList.add(person);
     }
 

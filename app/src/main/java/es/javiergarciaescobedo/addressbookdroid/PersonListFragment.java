@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import es.javiergarciaescobedo.addressbookdroid.adapters.PersonsArrayAdapter;
 import es.javiergarciaescobedo.addressbookdroid.dummy.DummyContent;
 import es.javiergarciaescobedo.addressbookdroid.models.Person;
 import es.javiergarciaescobedo.addressbookdroid.models.Persons;
@@ -73,20 +74,15 @@ public class PersonListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO: replace with a real list adapter.
-//        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
-//                getActivity(),
-//                android.R.layout.simple_list_item_activated_1,
-//                android.R.id.text1,
-//                DummyContent.ITEMS));
         if(Persons.personList.isEmpty()) {
             Persons.loadSimpleSamples();
         }
-        setListAdapter(new ArrayAdapter<Person>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                Persons.personList));
+//        setListAdapter(new ArrayAdapter<Person>(
+//                getActivity(),
+//                android.R.layout.simple_list_item_activated_1,
+//                android.R.id.text1,
+//                Persons.personList));
+        setListAdapter(new PersonsArrayAdapter(getActivity(), Persons.personList));
     }
 
     @Override
