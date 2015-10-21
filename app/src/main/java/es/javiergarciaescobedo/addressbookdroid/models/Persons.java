@@ -1,11 +1,15 @@
 package es.javiergarciaescobedo.addressbookdroid.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Persons {
 
     public static List<Person> personList = new ArrayList();
+
+    public static Map<String, Person> ITEM_MAP = new HashMap<String, Person>();
 
     /**
      * Load a little number of persons in the list, with only a few properties filled
@@ -21,6 +25,7 @@ public class Persons {
         person.setAlias("EVA");
         person.setFavorite(true);
         personList.add(person);
+        ITEM_MAP.put(String.valueOf(person.getId()), person);
 
         person = new Person();
         person.setId(2);
@@ -29,6 +34,7 @@ public class Persons {
         person.setAlias("CARLOS");
         person.setFavorite(false);
         personList.add(person);
+        ITEM_MAP.put(String.valueOf(person.getId()), person);
 
         person = new Person();
         person.setId(3);
@@ -37,6 +43,7 @@ public class Persons {
         person.setAlias("ANTONIO");
         person.setFavorite(true);
         personList.add(person);
+        ITEM_MAP.put(String.valueOf(person.getId()), person);
     }
 
 }
