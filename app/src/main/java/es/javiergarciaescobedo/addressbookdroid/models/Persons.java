@@ -23,6 +23,7 @@ public class Persons {
         person.setName("EVA MARIA");
         person.setSurnames("HURTADO REQUENA");
         person.setAlias("EVA");
+        person.setPhoneNumber("956290949");
         person.setFavorite(true);
         personList.add(person);
         ITEM_MAP.put(String.valueOf(person.getId()), person);
@@ -32,6 +33,7 @@ public class Persons {
         person.setName("CARLOS DOMINGO DE GUZMAN");
         person.setSurnames("BLANCO  PEREZ");
         person.setAlias("CARLOS");
+        person.setPhoneNumber("956125889");
         person.setFavorite(false);
         personList.add(person);
         ITEM_MAP.put(String.valueOf(person.getId()), person);
@@ -41,6 +43,7 @@ public class Persons {
         person.setName("ANTONIO ENRIQUE");
         person.setSurnames("FUENTE DE LA SANDE\n");
         person.setAlias("ANTONIO");
+        person.setPhoneNumber("956222472");
         person.setFavorite(true);
         personList.add(person);
         ITEM_MAP.put(String.valueOf(person.getId()), person);

@@ -70,6 +70,13 @@ public class PersonDetailFragment extends Fragment {
 //            ((TextView) rootView.findViewById(R.id.person_detail)).setText(mItem.details);
 //        }
 
+        // Show the person content
+        if(person != null) {
+            ((TextView) rootView.findViewById(R.id.textViewName)).setText(person.getName());
+            ((TextView) rootView.findViewById(R.id.textViewSurnames)).setText(person.getSurnames());
+            ((TextView) rootView.findViewById(R.id.textViewPhone)).setText(person.getPhoneNumber());
+        }
+
         return rootView;
     }
 }
