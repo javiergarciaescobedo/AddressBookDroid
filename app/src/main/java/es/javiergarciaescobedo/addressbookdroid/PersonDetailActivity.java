@@ -1,5 +1,10 @@
 package es.javiergarciaescobedo.addressbookdroid;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,18 +54,26 @@ public class PersonDetailActivity extends AppCompatActivity {
         //
         // http://developer.android.com/guide/components/fragments.html
         //
-        if (savedInstanceState == null) {
-            // Create the detail fragment and add it to the activity
-            // using a fragment transaction.
-            Bundle arguments = new Bundle();
-            arguments.putString(PersonDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(PersonDetailFragment.ARG_ITEM_ID));
-            PersonDetailFragment fragment = new PersonDetailFragment();
-            fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.person_detail_container, fragment)
-                    .commit();
-        }
+//        if (savedInstanceState == null) {
+//            // Create the detail fragment and add it to the activity
+//            // using a fragment transaction.
+//            Bundle arguments = new Bundle();
+//            arguments.putString(PersonDetailFragment.ARG_ITEM_ID,
+//                    getIntent().getStringExtra(PersonDetailFragment.ARG_ITEM_ID));
+//            PersonDetailFragment fragment = new PersonDetailFragment();
+//            fragment.setArguments(arguments);
+//            getSupportFragmentManager().beginTransaction()
+//                    .add(R.id.person_detail_container, fragment)
+//                    .commit();
+//        }
+
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.person_detail_container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
     }
 
     @Override
@@ -78,5 +91,56 @@ public class PersonDetailActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            //TODO: Meter aquí el siguiente código que es similar al que había en el método
+            // onCreate original de esta Activity
+            Bundle arguments = new Bundle();
+            //Se pasa al fragment el id de la posición seleccionada por el usuario en la lista
+            arguments.putString(PersonDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(PersonDetailFragment.ARG_ITEM_ID));
+            switch(position) {
+                case 0:
+                    PersonDetailFragment fragment1 = new PersonDetailFragment();
+                    fragment1.setArguments(arguments);
+                    return fragment1;
+                case 1:
+                    PersonDetailFragment fragment2 = new PersonDetailFragment();
+                    fragment2.setArguments(arguments);
+                    return fragment2;
+                case 2:
+                    PersonDetailFragment fragment3 = new PersonDetailFragment();
+                    fragment3.setArguments(arguments);
+                    return fragment3;
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "SECTION 1";
+                case 1:
+                    return "SECTION 2";
+                case 2:
+                    return "SECTION 3";
+            }
+            return null;
+        }
     }
 }
