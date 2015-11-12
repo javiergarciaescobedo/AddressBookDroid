@@ -76,8 +76,6 @@ public class PersonDetailActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-//        NestedScrollView scrollView = (NestedScrollView) findViewById (R.id.container_scroll);
-//        scrollView.setFillViewport(true);
     }
 
     @Override
@@ -105,10 +103,7 @@ public class PersonDetailActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            //TODO: Meter aquí el siguiente código que es similar al que había en el método
-            // onCreate original de esta Activity
             Bundle arguments = new Bundle();
-            //Se pasa al fragment el id de la posición seleccionada por el usuario en la lista
             arguments.putString(PersonDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(PersonDetailFragment.ARG_ITEM_ID));
             switch(position) {
@@ -117,11 +112,11 @@ public class PersonDetailActivity extends AppCompatActivity {
                     fragment1.setArguments(arguments);
                     return fragment1;
                 case 1:
-                    PersonDetailFragment fragment2 = new PersonDetailFragment();
+                    PersonDetailFragment2 fragment2 = new PersonDetailFragment2();
                     fragment2.setArguments(arguments);
                     return fragment2;
                 case 2:
-                    PersonDetailFragment fragment3 = new PersonDetailFragment();
+                    PersonDetailFragment3 fragment3 = new PersonDetailFragment3();
                     fragment3.setArguments(arguments);
                     return fragment3;
             }
@@ -138,11 +133,11 @@ public class PersonDetailActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "Main Details";
                 case 1:
-                    return "SECTION 2";
+                    return "Address";
                 case 2:
-                    return "SECTION 3";
+                    return "Email";
             }
             return null;
         }

@@ -25,6 +25,11 @@ public class Persons {
         person.setAlias("EVA");
         person.setPhoneNumber("956290949");
         person.setFavorite(true);
+        person.setEmail("eva.hurtado@server.com");
+        person.setAddress("CLAVILEÑO , CALLE");
+        person.setPostCode("11659");
+        person.setCity("PUERTO SERRANO");
+        person.setProvince("CÁDIZ");
         personList.add(person);
         ITEM_MAP.put(String.valueOf(person.getId()), person);
 
@@ -35,6 +40,11 @@ public class Persons {
         person.setAlias("CARLOS");
         person.setPhoneNumber("956125889");
         person.setFavorite(false);
+        person.setEmail("carlos.blanco@server.com");
+        person.setAddress("PERU , CALLE");
+        person.setPostCode("11611");
+        person.setCity("VILLALUENGA DEL ROSARIO");
+        person.setProvince("CÁDIZ");
         personList.add(person);
         ITEM_MAP.put(String.valueOf(person.getId()), person);
 
@@ -45,6 +55,11 @@ public class Persons {
         person.setAlias("ANTONIO");
         person.setPhoneNumber("956222472");
         person.setFavorite(true);
+        person.setEmail("antonio.fuente@server.com");
+        person.setAddress("PORTERIA DE STO.DOMINGO , CALLE");
+        person.setPostCode("11600");
+        person.setCity("UBRIQUE");
+        person.setProvince("CÁDIZ");
         personList.add(person);
         ITEM_MAP.put(String.valueOf(person.getId()), person);
     }
